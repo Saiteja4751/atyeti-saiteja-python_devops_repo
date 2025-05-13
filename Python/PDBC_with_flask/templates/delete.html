@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete User</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #ffcdd2;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #c62828;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+        }
+        button {
+            background-color: #e53935;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <form action="/delete" method="POST">
+        <h2>Delete User</h2>
+        <input type="number" name="id" placeholder="Enter User ID to Delete" required>
+        <button type="submit">🗑️ Delete User</button>
+    </form>
+</body>
+</html>
