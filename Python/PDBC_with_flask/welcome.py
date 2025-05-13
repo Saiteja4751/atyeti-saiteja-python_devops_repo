@@ -12,16 +12,11 @@ def get_db_connection():
         database='flaskdb'
     )
 
-# ------------------------
-# 1️⃣ Welcome Page
-# ------------------------
 @app.route('/')
 def welcome():
     return render_template('welcome.html')
 
-# ------------------------
-# 2️⃣ Insert User
-# ------------------------
+
 @app.route('/insert-form')
 def insert_form():
     return render_template('insert.html')
@@ -74,9 +69,7 @@ def insert_user():
         if conn and conn.open:
             conn.close()
 
-# ------------------------
-# 3️⃣ Update User
-# ------------------------
+
 @app.route('/update-form')
 def update_form():
     return render_template('update.html')
@@ -132,9 +125,8 @@ def update_user():
         if conn and conn.open:
             conn.close()
 
-# ------------------------
-# 4️⃣ View All Users
-# ------------------------
+
+
 @app.route('/view')
 def view_users():
     try:
@@ -152,9 +144,6 @@ def view_users():
             conn.close()
 
 
-# ------------------------
-# 4️⃣ delete the specific user Users
-# ------------------------
 
 @app.route('/delete-form')
 def delete_form():
