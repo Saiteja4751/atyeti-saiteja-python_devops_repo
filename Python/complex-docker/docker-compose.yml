@@ -1,0 +1,72 @@
+# Use Docker Compose version 3.8
+version: '3.8'
+
+# Define all your services (containers) here
+services:
+
+  # =============================
+  # 1. MySQL Database Container
+  # =============================
+  db:
+    image: mysql:8.0                         # Use the official MySQL 8 image from Docker Hub
+    container_name: mysql-db                # Name of the container for easier reference
+    restart: always                         # Restart container automatically if it crashes
+    ports:
+      - "3306:3306"                          # Optional: Expose MySQL port to local machine
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass         # Root user password for MySQL
+      MYSQL_DATABASE: appdb                 # Initial database to be created
+      MYSQL_USER: appuser                   # Non-root user created with access to appdb
+      MYSQL_PASSWORD: apppass               # Password for appuser
+    volumes:
+      - db_data:/var/lib/mysql              # Mount volume to persist MySQL data
+    networks:
+      - backend                             # Attach to a common network with Flask and NGINX
+
+  # =============================
+  # 2. Flask Backend App
+  # =============================
+  flask:
+    build:
+      context: ./flask-app                  # Build context directory (should contain Dockerfile)
+      dockerfile: Dockerfile                # Name of the Dockerfile to use
+    container_name: flask-api               # Name of the container
+    restart: always                         # Restart policy
+    ports:
+      - "5000:5000"                         # Expose Flask's port
+    environment:
+      DB_HOST: db                           # Hostname of the MySQL container (service name)
+      DB_USER: appuser                      # Same user defined in db service
+      DB_PASSWORD: apppass                  # Same password defined in db service
+      DB_NAME: appdb                        # Name of the database
+    depends_on:
+      - db                                  # Start only after db container is up
+    networks:
+      - backend                             # Shared network
+
+  # =============================
+  # 3. NGINX Reverse Proxy
+  # =============================
+  nginx:
+    build:
+      context: ./nginx                      # Directory where NGINX Dockerfile and config are stored
+    container_name: nginx-proxy            # Name of the container
+    restart: always
+    ports:
+      - "80:80"                             # Expose NGINX on port 80 (default HTTP port)
+    depends_on:
+      - flask                               # Start after Flask container is ready
+    networks:
+      - backend                             # Shared network
+
+# =============================
+# Named Volumes
+# =============================
+volumes:
+  db_data:                                  # Volume to persist MySQL data across restarts
+
+# =============================
+# Network Definition
+# =============================
+networks:
+  backend:                                  # Custom bridge network for service communication
