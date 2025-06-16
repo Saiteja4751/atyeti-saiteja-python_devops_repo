@@ -1,9 +1,0 @@
-mysqldump: [Warning] Using a password on the command line interface can be insecure.
-Completed 1019 Bytes/1019 Bytes (3.6 KiB/s) with 1 file(s) remainingupload: script_project_using_aws_s3/testdb-2025-04-23_05:15:00.sql.tar.gz to s3://your-mysql-backup-bucket0001/testdb-2025-04-23_05:15:00.sql.tar.gz
-✅ Backup completed and uploaded to S3: testdb-2025-04-23_05:15:00.sql.tar.gz
-mysqldump: [Warning] Using a password on the command line interface can be insecure.
-Completed 1019 Bytes/1019 Bytes (2.7 KiB/s) with 1 file(s) remainingupload: script_project_using_aws_s3/testdb-2025-04-23_05:20:01.sql.tar.gz to s3://your-mysql-backup-bucket0001/testdb-2025-04-23_05:20:01.sql.tar.gz
-✅ Backup completed and uploaded to S3: testdb-2025-04-23_05:20:01.sql.tar.gz
-mysqldump: [Warning] Using a password on the command line interface can be insecure.
-Completed 1018 Bytes/1018 Bytes (2.2 KiB/s) with 1 file(s) remainingupload: script_project_using_aws_s3/testdb-2025-04-23_05:25:00.sql.tar.gz to s3://your-mysql-backup-bucket0001/testdb-2025-04-23_05:25:00.sql.tar.gz
-✅ Backup completed and uploaded to S3: testdb-2025-04-23_05:25:00.sql.tar.gz
