@@ -1,0 +1,8 @@
+#StudentApplicatoins Using the RDS
+1.intially i took a application form the github (by cloning)
+2.then i started pushing the code into the docker by using the githubactions CICD pipeline 
+3.then i take the ec2 instance to using the ubuntu services
+4.then i started storeed in RDS using the EC2 instance help 
+5. i took the SQL database in the RDS service 
+6.after that i started a deloying the application using the public acces address to acces the applucation 
+7.finally it store the data what it updated in the application
