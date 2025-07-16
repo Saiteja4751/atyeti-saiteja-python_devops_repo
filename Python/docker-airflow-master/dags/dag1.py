@@ -49,4 +49,4 @@ with DAG(dag_id='test_dag',default_args=default_args,schedule_interval='@daily')
 
 
     
-check_file >> pre_process >> filter_data >>email
+check_file >> pre_process >> filter_data >> email
