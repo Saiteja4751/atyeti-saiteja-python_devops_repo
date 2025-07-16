@@ -1,0 +1,58 @@
+
+ETL Pipeline - Docker + Apache Airflow
+======================================
+
+User Challenges and Tasks Description:
+
+Project Summary:
+----------------
+The user created a small ETL PoC using Apache Airflow inside a Docker containerized setup.
+This ETL workflow processes a CSV file, transforms it, and sends an email with the results.
+
+Folders:
+--------
+- ip_files/         --> Contains the input file 'summer.csv'
+- op_files/         --> Output files are saved here after processing
+
+Tasks Breakdown:
+----------------
+Task 1: Extract (Using BashOperator)
+  - Check if the input file 'summer.csv' exists in the ip_files folder.
+
+Task 2: Transform (Using PythonOperator)
+  - Clean the data: Added a new column to the CSV file.
+  - Save the modified file as 'summer2.csv' in the op_files folder.
+
+Task 3: Transform (Using PythonOperator)
+  - Filter the data:
+    - Keep records between the years 1949 and 1990.
+    - Filter rows where gender is 'Men'.
+  - Save the filtered output to 'updated_filter_data.csv' in the op_files folder.
+
+Task 4: Load (Using EmailOperator)
+  - Email the final report 'updated_filter_data.csv' as an attachment.
+  - Email settings were configured using SMTP with Gmail App Password.
+
+Tools Used:
+-----------
+- Docker Compose for Airflow orchestration
+- BashOperator, PythonOperator, EmailOperator from Airflow
+- Pandas library for CSV transformation
+- Gmail SMTP for sending reports via email
+
+Challenges Faced:
+-----------------
+1. Handled line-ending conversion warnings (LF vs CRLF) on Windows.
+2. Required Gmail App Password for EmailOperator SMTP settings.
+3. Ensured Docker volumes correctly mapped input/output folders to Airflow paths.
+4. Coordinated file paths inside containers vs host system for Python file I/O.
+
+Outcome:
+--------
+The ETL workflow runs smoothly, demonstrating a working pipeline using Apache Airflow
+that performs end-to-end Extract, Transform, and Load operations in a containerized environment.
+
+
+github-link: 
+--------------
+https://github.com/puckel/docker-airflow
