@@ -45,7 +45,7 @@ with DAG(dag_id='test_dag',default_args=default_args,schedule_interval='@daily')
         subject='Daily report Generated 7 report attached',
         html_content='<h1>Hello,your reports are generated sucessfully, Thanks',
         files=['/usr/local/airflow/op_files/updated_filter_data.csv'],
-        cc=['saitejareddybattu1234@gmail.com']
+        cc=['saitejareddybattu1234@gmail.com','saridisowmya2002@gmail.com']
     )
 
 

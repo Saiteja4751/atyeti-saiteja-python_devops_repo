@@ -1,0 +1,6 @@
+--- file2.txt ---
+hello from task2
+--- file1.txt ---
+hello from task1
+--- file3.txt ---
+hello from task3
