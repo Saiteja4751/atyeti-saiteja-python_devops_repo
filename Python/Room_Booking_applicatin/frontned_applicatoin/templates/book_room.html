@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+        <h2>Book a Room</h2>
+    <form method="post">
+        Customer Name: <input type="text" name="customer_name" required><br>
+        Select Room:
+        <select name="room_id" placeholder="room_id">
+            {% for room in rooms %}
+                <option value="{{ room.id }}">{{ room.name }} (Capacity: {{ room.capacity }})</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Book Room</button>
+    </form>
+    <a href="/">Back</a>
+        
+
+</body>
+</html>

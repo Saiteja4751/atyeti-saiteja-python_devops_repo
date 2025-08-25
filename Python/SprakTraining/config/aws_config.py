@@ -1,0 +1,6 @@
+import os
+
+AWS_ACCESS_KEY = "AKIAVQ6SNZRK4T37HX7I"
+AWS_SECRET_KEY = "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"
+AWS_REGION = "us-east-1" 
+S3_BUCKET_NAME = "mybucketalthaf-4751"
